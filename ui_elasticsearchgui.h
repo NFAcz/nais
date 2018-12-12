@@ -36,7 +36,7 @@ public:
     QComboBox *categorySel;
     QLineEdit *lineEdit;
     QLabel *label_2;
-    QTextEdit *textEdit;
+    QTextEdit *outputBox;
     QPushButton *pushButton;
     QLabel *label;
     QMenuBar *menuBar;
@@ -66,15 +66,15 @@ public:
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(310, 60, 70, 20));
         label_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        textEdit = new QTextEdit(groupBox);
-        textEdit->setObjectName(QStringLiteral("textEdit"));
-        textEdit->setGeometry(QRect(9, 90, 381, 320));
+        outputBox = new QTextEdit(groupBox);
+        outputBox->setObjectName(QStringLiteral("outputBox"));
+        outputBox->setGeometry(QRect(9, 90, 381, 320));
         pushButton = new QPushButton(groupBox);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(10, 60, 80, 20));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(140, 10, 130, 60));
+        label->setGeometry(QRect(20, 10, 381, 60));
         QFont font;
         font.setFamily(QStringLiteral("Executive"));
         font.setPointSize(32);
@@ -113,7 +113,7 @@ public:
         );
         label_2->setText(QString());
         pushButton->setText(QApplication::translate("ElasticSearchGUI", "Hledej", Q_NULLPTR));
-        label->setText(QApplication::translate("ElasticSearchGUI", "NFA", Q_NULLPTR));
+        label->setText(QApplication::translate("ElasticSearchGUI", "AIS NOT DEAD", Q_NULLPTR));
     } // retranslateUi
 
 };

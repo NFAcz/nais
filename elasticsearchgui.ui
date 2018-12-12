@@ -96,7 +96,7 @@
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit">
+    <widget class="QTextEdit" name="outputBox">
      <property name="geometry">
       <rect>
        <x>9</x>
@@ -123,9 +123,9 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>20</x>
       <y>10</y>
-      <width>130</width>
+      <width>381</width>
       <height>60</height>
      </rect>
     </property>
@@ -138,7 +138,7 @@
      </font>
     </property>
     <property name="text">
-     <string>NFA</string>
+     <string>AIS NOT DEAD</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>

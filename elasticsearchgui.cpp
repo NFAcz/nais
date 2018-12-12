@@ -24,6 +24,8 @@ ElasticSearchGUI::ElasticSearchGUI(QWidget *parent) :
 {
   qDebug() << "starting setup";
 
+  CATEGORY << "NAZEV-KATALOG" << "FILMID" << "ROK-VYROBY" << "REZIE" << "FULLTEXT";
+
   QFile f("nais.config");
   if (!f.open(QFile::ReadOnly | QFile::Text)){
     qDebug() << "error config file can't be loaded";
@@ -120,7 +122,7 @@ void ElasticSearchGUI::ask(QString &input){
 
     QString str = answer.join("\n");
 
-    ui->textEdit->setText(str);
+    ui->outputBox->setText(str);
 
 
 

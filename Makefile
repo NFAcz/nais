@@ -35,7 +35,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = elasticSearchGUI31.0.0
-DISTDIR = /home/kof/src/elasticSearchGUI3/.tmp/elasticSearchGUI31.0.0
+DISTDIR = /home/kof/src/nais/.tmp/elasticSearchGUI31.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/opt/Qt/5.9.2/gcc_64/lib
 LIBS          = $(SUBLIBS) -L/opt/Qt/5.9.2/gcc_64/lib -lQt5Widgets -lQt5Gui -lQt5Network -lQt5Core -lGL -lpthread 
@@ -775,7 +775,7 @@ moc_elasticsearchgui.cpp: /opt/Qt/5.9.2/gcc_64/include/QtWidgets/QMainWindow \
 		elasticsearchgui.h \
 		moc_predefs.h \
 		/opt/Qt/5.9.2/gcc_64/bin/moc
-	/opt/Qt/5.9.2/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/opt/Qt/5.9.2/gcc_64/mkspecs/linux-g++ -I/home/kof/src/elasticSearchGUI3 -I/opt/Qt/5.9.2/gcc_64/include -I/opt/Qt/5.9.2/gcc_64/include/QtWidgets -I/opt/Qt/5.9.2/gcc_64/include/QtGui -I/opt/Qt/5.9.2/gcc_64/include/QtNetwork -I/opt/Qt/5.9.2/gcc_64/include/QtCore -I/usr/include/c++/4.8.5 -I/usr/include/c++/4.8.5/x86_64-redhat-linux -I/usr/include/c++/4.8.5/backward -I/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include -I/usr/local/include -I/usr/include elasticsearchgui.h -o moc_elasticsearchgui.cpp
+	/opt/Qt/5.9.2/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/opt/Qt/5.9.2/gcc_64/mkspecs/linux-g++ -I/home/kof/src/nais -I/opt/Qt/5.9.2/gcc_64/include -I/opt/Qt/5.9.2/gcc_64/include/QtWidgets -I/opt/Qt/5.9.2/gcc_64/include/QtGui -I/opt/Qt/5.9.2/gcc_64/include/QtNetwork -I/opt/Qt/5.9.2/gcc_64/include/QtCore -I/usr/include/c++/4.8.5 -I/usr/include/c++/4.8.5/x86_64-redhat-linux -I/usr/include/c++/4.8.5/backward -I/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include -I/usr/local/include -I/usr/include elasticsearchgui.h -o moc_elasticsearchgui.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
