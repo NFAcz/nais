@@ -10,3 +10,11 @@ _..._
 qmake .
 make
 ```
+
+create ```nais.config``` file next to executable in format
+
+```
+HOSTNAME
+CREDENTIALS
+INDEX
+```

@@ -49,7 +49,7 @@ public:
     {
         if (ElasticSearchGUI->objectName().isEmpty())
             ElasticSearchGUI->setObjectName(QStringLiteral("ElasticSearchGUI"));
-        ElasticSearchGUI->resize(425, 572);
+        ElasticSearchGUI->resize(997, 591);
         centralWidget = new QWidget(ElasticSearchGUI);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         groupBox = new QGroupBox(centralWidget);
@@ -108,7 +108,7 @@ public:
         ElasticSearchGUI->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(ElasticSearchGUI);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 425, 17));
+        menuBar->setGeometry(QRect(0, 0, 997, 17));
         ElasticSearchGUI->setMenuBar(menuBar);
         mainToolBar = new QToolBar(ElasticSearchGUI);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));

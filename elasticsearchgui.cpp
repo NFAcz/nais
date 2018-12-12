@@ -32,13 +32,9 @@ ElasticSearchGUI::ElasticSearchGUI(QWidget *parent) :
     qDebug() << "error config file can't be loaded";
   }
   QTextStream in(&f);
-  TOKEN = in.readAll().split('\n')[0];
-  qDebug() << "token loaded ";
-  HOST = in.readAll().split('\n')[1];
-  qDebug() << "host loaded ";
-  INDEX = in.readAll().split('\n')[2];
-  qDebug() << "index loaded ";
-
+  HOST = in.readLine();
+  TOKEN = in.readLine();
+  INDEX = in.readLine();
 
 
   ui->setupUi(this);
@@ -90,8 +86,8 @@ void ElasticSearchGUI::ask(QString &input){
   QNetworkRequest request;
   QString filename = "https://"+TOKEN+"@"+HOST+"/"+INDEX+"/_search?size=1000&q="+CATEGORY[SEL]+":"+input;
 
-  if(SEL==4){
-    filename = "https://"+TOKEN+"@"+HOST+"/_all/_search?size=1000&q="+input
+  if(SEL==0){
+    filename = "https://"+TOKEN+"@"+HOST+"/_all/_search?size=1000&q="+input;
   }
 
   request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
