@@ -24,7 +24,7 @@ ElasticSearchGUI::ElasticSearchGUI(QWidget *parent) :
 {
   qDebug() << "starting setup";
 
-  CATEGORY << "NAZEV-KATALOG" << "FILMID" << "ROK-VYROBY" << "REZIE" << "FULLTEXT";
+  CATEGORY << "FULLTEXT" << "NAZEV-KATALOG" << "FILMID" << "ROK-VYROBY" << "REZIE";
 
   QFile f("nais.config");
   if (!f.open(QFile::ReadOnly | QFile::Text)){
@@ -57,9 +57,18 @@ void ElasticSearchGUI::on_pushButton_released()
   qDebug() << "query is:" << text;
 
   ask(text);
-  ui->lineEdit->setText("");
+//  ui->lineEdit->setText("");
 }
 
+
+void ElasticSearchGUI::on_lineEdit_returnPressed()
+{
+    QString text = ui->lineEdit->text();
+    qDebug() << "query is:" << text;
+
+    ask(text);
+//    ui->lineEdit->setText("");
+}
 
 
 void ElasticSearchGUI::on_categorySel_currentIndexChanged(int index)
@@ -76,7 +85,7 @@ void ElasticSearchGUI::ask(QString &input){
   QNetworkRequest request;
   QString filename = "https://"+TOKEN+"@elasticsearch.digilab.nfa.cz/ais_export/_search?size=1000&q="+CATEGORY[SEL]+":"+input;
 
-  if(SEL==4){
+  if(SEL==0){
     filename = "https://"+TOKEN+"@elasticsearch.digilab.nfa.cz/_all/_search?size=1000&q="+input;
   }
 
@@ -136,3 +145,4 @@ void ElasticSearchGUI::ask(QString &input){
 
 
 }
+

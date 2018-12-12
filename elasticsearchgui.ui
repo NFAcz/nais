@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>419</width>
-    <height>547</height>
+    <width>425</width>
+    <height>572</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>ElasticSearchGUI</string>
+   <string>nAIS</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QGroupBox" name="groupBox">
@@ -20,8 +20,17 @@
       <x>10</x>
       <y>70</y>
       <width>401</width>
-      <height>431</height>
+      <height>451</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
     </property>
     <property name="autoFillBackground">
      <bool>true</bool>
@@ -35,90 +44,64 @@
     <property name="flat">
      <bool>true</bool>
     </property>
-    <widget class="QComboBox" name="categorySel">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>60</y>
-       <width>151</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <item>
-      <property name="text">
-       <string>Název filmu</string>
-      </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0" colspan="3">
+      <widget class="QLineEdit" name="lineEdit"/>
      </item>
-     <item>
-      <property name="text">
-       <string>AIS číslo</string>
-      </property>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Hledej</string>
+       </property>
+      </widget>
      </item>
-     <item>
-      <property name="text">
-       <string>Rok</string>
-      </property>
+     <item row="1" column="1">
+      <widget class="QComboBox" name="categorySel">
+       <item>
+        <property name="text">
+         <string>Všechny kategorie</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Název filmu</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>AIS číslo</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rok</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Režie</string>
+        </property>
+       </item>
+      </widget>
      </item>
-     <item>
-      <property name="text">
-       <string>Režie</string>
-      </property>
+     <item row="1" column="2">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
      </item>
-     <item>
-      <property name="text">
-       <string>Všechny kategorie</string>
-      </property>
+     <item row="2" column="0" colspan="3">
+      <widget class="QTextEdit" name="outputBox">
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit">
-     <property name="geometry">
-      <rect>
-       <x>9</x>
-       <y>30</y>
-       <width>381</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>60</y>
-       <width>70</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="outputBox">
-     <property name="geometry">
-      <rect>
-       <x>9</x>
-       <y>90</y>
-       <width>381</width>
-       <height>320</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>60</y>
-       <width>80</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Hledej</string>
-     </property>
-    </widget>
+    </layout>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -150,7 +133,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>419</width>
+     <width>425</width>
      <height>17</height>
     </rect>
    </property>

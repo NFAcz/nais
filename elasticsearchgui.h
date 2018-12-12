@@ -19,6 +19,8 @@ private slots:
     void on_categorySel_currentIndexChanged(int index);
     void on_pushButton_released();
 
+    void on_lineEdit_returnPressed();
+
 private:
     Ui::ElasticSearchGUI *ui;
     void ask(QString&);
