@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>425</width>
-    <height>591</height>
+    <width>486</width>
+    <height>589</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>10</x>
       <y>70</y>
-      <width>401</width>
-      <height>451</height>
+      <width>461</width>
+      <height>461</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -45,13 +45,13 @@
      <bool>true</bool>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0" colspan="3">
-      <widget class="QLineEdit" name="lineEdit"/>
-     </item>
-     <item row="1" column="0">
-      <widget class="QPushButton" name="pushButton">
+     <item row="1" column="2">
+      <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Hledej</string>
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
@@ -84,21 +84,38 @@
        </item>
       </widget>
      </item>
-     <item row="1" column="2">
-      <widget class="QLabel" name="label_2">
+     <item row="0" column="0" colspan="3">
+      <widget class="QLineEdit" name="lineEdit"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButton">
        <property name="text">
-        <string/>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        <string>Hledej</string>
        </property>
       </widget>
      </item>
      <item row="2" column="0" colspan="3">
-      <widget class="QTextEdit" name="outputBox">
-       <property name="autoFillBackground">
-        <bool>true</bool>
-       </property>
+      <widget class="QTreeWidget" name="treeWidget">
+       <column>
+        <property name="text">
+         <string>Název</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>AIS číslo</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>rok</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Režie</string>
+        </property>
+       </column>
       </widget>
      </item>
     </layout>
@@ -106,7 +123,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>50</x>
       <y>10</y>
       <width>381</width>
       <height>60</height>
@@ -133,7 +150,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>425</width>
+     <width>486</width>
      <height>17</height>
     </rect>
    </property>

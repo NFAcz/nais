@@ -23,8 +23,8 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBar>
+#include <QtWidgets/QTreeWidget>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -39,7 +39,7 @@ public:
     QPushButton *pushButton;
     QComboBox *categorySel;
     QLabel *label_2;
-    QTextEdit *outputBox;
+    QTreeWidget *treeWidget;
     QLabel *label;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -49,12 +49,12 @@ public:
     {
         if (ElasticSearchGUI->objectName().isEmpty())
             ElasticSearchGUI->setObjectName(QStringLiteral("ElasticSearchGUI"));
-        ElasticSearchGUI->resize(997, 591);
+        ElasticSearchGUI->resize(486, 589);
         centralWidget = new QWidget(ElasticSearchGUI);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         groupBox = new QGroupBox(centralWidget);
         groupBox->setObjectName(QStringLiteral("groupBox"));
-        groupBox->setGeometry(QRect(10, 70, 401, 451));
+        groupBox->setGeometry(QRect(10, 70, 461, 461));
         QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -89,15 +89,14 @@ public:
 
         gridLayout->addWidget(label_2, 1, 2, 1, 1);
 
-        outputBox = new QTextEdit(groupBox);
-        outputBox->setObjectName(QStringLiteral("outputBox"));
-        outputBox->setAutoFillBackground(true);
+        treeWidget = new QTreeWidget(groupBox);
+        treeWidget->setObjectName(QStringLiteral("treeWidget"));
 
-        gridLayout->addWidget(outputBox, 2, 0, 1, 3);
+        gridLayout->addWidget(treeWidget, 2, 0, 1, 3);
 
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(20, 10, 381, 60));
+        label->setGeometry(QRect(50, 10, 381, 60));
         QFont font;
         font.setFamily(QStringLiteral("Executive"));
         font.setPointSize(32);
@@ -108,7 +107,7 @@ public:
         ElasticSearchGUI->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(ElasticSearchGUI);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 997, 17));
+        menuBar->setGeometry(QRect(0, 0, 486, 17));
         ElasticSearchGUI->setMenuBar(menuBar);
         mainToolBar = new QToolBar(ElasticSearchGUI);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -136,6 +135,11 @@ public:
          << QApplication::translate("ElasticSearchGUI", "Re\305\276ie", Q_NULLPTR)
         );
         label_2->setText(QString());
+        QTreeWidgetItem *___qtreewidgetitem = treeWidget->headerItem();
+        ___qtreewidgetitem->setText(3, QApplication::translate("ElasticSearchGUI", "Re\305\276ie", Q_NULLPTR));
+        ___qtreewidgetitem->setText(2, QApplication::translate("ElasticSearchGUI", "rok", Q_NULLPTR));
+        ___qtreewidgetitem->setText(1, QApplication::translate("ElasticSearchGUI", "AIS \304\215\303\255slo", Q_NULLPTR));
+        ___qtreewidgetitem->setText(0, QApplication::translate("ElasticSearchGUI", "N\303\241zev", Q_NULLPTR));
         label->setText(QApplication::translate("ElasticSearchGUI", "AIS NOT DEAD", Q_NULLPTR));
     } // retranslateUi
 

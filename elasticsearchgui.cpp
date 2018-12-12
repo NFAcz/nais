@@ -120,20 +120,48 @@ void ElasticSearchGUI::ask(QString &input){
       ui->label_2->setText("hits: " + count);
     }
 
+
     QJsonArray hits = hitsTmp["hits"].toArray();
     QStringList answer;
+
+
+    QTreeWidget * tree = ui->treeWidget;
+    tree->clear();
 
     foreach (const QJsonValue & value, hits) {
       QJsonObject obj = value.toObject();
       QJsonObject source = obj["_source"].toObject();
-      qDebug() << source.value("NAZEV-KATALOG").toString();
-      answer << source.value("NAZEV-KATALOG").toString() + ", " + source.value("FILMID").toString() + ", " + source.value("ROK-VYROBY").toString();
+//      qDebug() << source.value("NAZEV-KATALOG").toString();
+//      answer << source.value("NAZEV-KATALOG").toString() + ", " + source.value("FILMID").toString() + ", " + source.value("ROK-VYROBY").toString();
+
+      QTreeWidgetItem * topLevel = new QTreeWidgetItem();
+      topLevel->setText(0, source.value("NAZEV-KATALOG").toString());
+      topLevel->setText(1, source.value("FILMID").toString());
+      topLevel->setText(2, source.value("ROK-VYROBY").toString());
+
+      for(int i = 0 ; i < source.size(); i++){
+          QTreeWidgetItem * item = new QTreeWidgetItem();
+             item->setText(0,source.keys()[i] + " : " + source.value(source.keys()[i]).toString());
+             topLevel->addChild(item);
+
+      }
+      tree->addTopLevelItem(topLevel);
     }
 
-    QString str = answer.join("\n");
+//    QString str = answer.join("\n");
 
-    ui->outputBox->setText(str);
+//    ui->outputBox->setText(str);
 
+
+
+    /*
+    for(int i=0; i<5; i++)
+    {
+                QTreeWidgetItem * item = new QTreeWidgetItem();
+                item->setText(0,"item " + QString::number(i+1));
+                topLevel->addChild(item);
+    }
+    */
 
 
   }
