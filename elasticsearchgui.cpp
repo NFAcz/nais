@@ -25,6 +25,8 @@ ElasticSearchGUI::ElasticSearchGUI(QWidget *parent) :
 {
   qDebug() << "starting setup";
 
+  CATEGORY << "FULLTEXT" << "NAZEV-KATALOG" << "FILMID" << "ROK-VYROBY" << "REZIE";
+
   QFile f("nais.config");
   if (!f.open(QFile::ReadOnly | QFile::Text)){
     qDebug() << "error config file can't be loaded";
@@ -60,9 +62,18 @@ void ElasticSearchGUI::on_pushButton_released()
   qDebug() << "query is:" << text;
 
   ask(text);
-  ui->lineEdit->setText("");
+//  ui->lineEdit->setText("");
 }
 
+
+void ElasticSearchGUI::on_lineEdit_returnPressed()
+{
+    QString text = ui->lineEdit->text();
+    qDebug() << "query is:" << text;
+
+    ask(text);
+//    ui->lineEdit->setText("");
+}
 
 
 void ElasticSearchGUI::on_categorySel_currentIndexChanged(int index)
@@ -80,7 +91,7 @@ void ElasticSearchGUI::ask(QString &input){
   QString filename = "https://"+TOKEN+"@"+HOST+"/"+INDEX+"/_search?size=1000&q="+CATEGORY[SEL]+":"+input;
 
   if(SEL==4){
-    filename = "https://"+TOKEN+"@"+HOST+"/_all/_search?size=1000&q="+input;
+    filename = "https://"+TOKEN+"@"+HOST+"/_all/_search?size=1000&q="+input
   }
 
   request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
@@ -125,7 +136,7 @@ void ElasticSearchGUI::ask(QString &input){
 
     QString str = answer.join("\n");
 
-    ui->textEdit->setText(str);
+    ui->outputBox->setText(str);
 
 
 
@@ -139,3 +150,4 @@ void ElasticSearchGUI::ask(QString &input){
 
 
 }
+
