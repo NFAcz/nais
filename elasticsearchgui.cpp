@@ -131,39 +131,52 @@ void ElasticSearchGUI::ask(QString &input){
     foreach (const QJsonValue & value, hits) {
       QJsonObject obj = value.toObject();
       QJsonObject source = obj["_source"].toObject();
-//      qDebug() << source.value("NAZEV-KATALOG").toString();
-//      answer << source.value("NAZEV-KATALOG").toString() + ", " + source.value("FILMID").toString() + ", " + source.value("ROK-VYROBY").toString();
 
       QTreeWidgetItem * topLevel = new QTreeWidgetItem();
       topLevel->setText(0, source.value("NAZEV-KATALOG").toString());
       topLevel->setText(1, source.value("FILMID").toString());
       topLevel->setText(2, source.value("ROK-VYROBY").toString());
+      topLevel->setText(3, source.value("REZIE").toString());
 
+//      topLevel->setText(4, source.value("MATERIAL").toObject().value("DILY-KOMBIN-MATERIALU").toObject().value("DELKA-CELEM").toString());
+
+      /*
       for(int i = 0 ; i < source.size(); i++){
           QTreeWidgetItem * item = new QTreeWidgetItem();
-             item->setText(0,source.keys()[i] + " : " + source.value(source.keys()[i]).toString());
+             item->setText(0,source.keys()[i] + ": " + source.value(source.keys()[i]).toString());
              topLevel->addChild(item);
 
       }
+      */
+
+      QJsonObject::iterator i;
+          for (i = source.begin(); i != source.end(); ++i) {
+              if (i.value().isNull()){
+                  QTreeWidgetItem * item = new QTreeWidgetItem();
+                  QString tmp = i.key();
+                  item->setText(0,tmp);
+                  topLevel->addChild(item);
+              }else if (i.value().isObject()) {
+                  QJsonObject innerObject = i.value().toObject();
+                  QTreeWidgetItem * item = new QTreeWidgetItem();
+                  QJsonObject::iterator j;
+                  QString tmp = "";
+                      for (j = innerObject.begin(); j != innerObject.end(); ++j) {
+                          if (j.value().isObject()) {
+                              tmp+=j.key()+"\n";
+                          }
+                  }
+                  item->setText(0,tmp);
+                  topLevel->addChild(item);
+              }else{
+                  QTreeWidgetItem * item = new QTreeWidgetItem();
+                  QString tmp = i.key()+ ": "+ i.value().toString();
+                  item->setText(0,tmp);
+                  topLevel->addChild(item);
+                  }
+          }
       tree->addTopLevelItem(topLevel);
     }
-
-//    QString str = answer.join("\n");
-
-//    ui->outputBox->setText(str);
-
-
-
-    /*
-    for(int i=0; i<5; i++)
-    {
-                QTreeWidgetItem * item = new QTreeWidgetItem();
-                item->setText(0,"item " + QString::number(i+1));
-                topLevel->addChild(item);
-    }
-    */
-
-
   }
   else // something went wrong
   {

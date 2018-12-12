@@ -22,9 +22,10 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBar>
 #include <QtWidgets/QTreeWidget>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -33,70 +34,34 @@ class Ui_ElasticSearchGUI
 {
 public:
     QWidget *centralWidget;
-    QGroupBox *groupBox;
-    QGridLayout *gridLayout;
-    QLabel *label_2;
-    QComboBox *categorySel;
-    QLineEdit *lineEdit;
-    QPushButton *pushButton;
-    QTreeWidget *treeWidget;
+    QGridLayout *gridLayout_3;
     QLabel *label;
+    QGroupBox *groupBox;
+    QVBoxLayout *verticalLayout;
+    QLineEdit *lineEdit;
+    QLabel *label_2;
+    QSpacerItem *horizontalSpacer;
+    QComboBox *categorySel;
+    QPushButton *pushButton;
+    QSpacerItem *horizontalSpacer_2;
+    QTreeWidget *treeWidget;
+    QSpacerItem *horizontalSpacer_3;
     QMenuBar *menuBar;
-    QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *ElasticSearchGUI)
     {
         if (ElasticSearchGUI->objectName().isEmpty())
             ElasticSearchGUI->setObjectName(QStringLiteral("ElasticSearchGUI"));
-        ElasticSearchGUI->resize(667, 591);
+        ElasticSearchGUI->resize(482, 586);
         centralWidget = new QWidget(ElasticSearchGUI);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        groupBox = new QGroupBox(centralWidget);
-        groupBox->setObjectName(QStringLiteral("groupBox"));
-        groupBox->setGeometry(QRect(10, 70, 641, 461));
-        QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(groupBox->sizePolicy().hasHeightForWidth());
-        groupBox->setSizePolicy(sizePolicy);
-        groupBox->setLayoutDirection(Qt::LeftToRight);
-        groupBox->setAutoFillBackground(true);
-        groupBox->setAlignment(Qt::AlignJustify|Qt::AlignVCenter);
-        groupBox->setFlat(true);
-        gridLayout = new QGridLayout(groupBox);
-        gridLayout->setSpacing(6);
-        gridLayout->setContentsMargins(11, 11, 11, 11);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        label_2 = new QLabel(groupBox);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        gridLayout->addWidget(label_2, 1, 2, 1, 1);
-
-        categorySel = new QComboBox(groupBox);
-        categorySel->setObjectName(QStringLiteral("categorySel"));
-
-        gridLayout->addWidget(categorySel, 1, 1, 1, 1);
-
-        lineEdit = new QLineEdit(groupBox);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-
-        gridLayout->addWidget(lineEdit, 0, 0, 1, 3);
-
-        pushButton = new QPushButton(groupBox);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-
-        gridLayout->addWidget(pushButton, 1, 0, 1, 1);
-
-        treeWidget = new QTreeWidget(groupBox);
-        treeWidget->setObjectName(QStringLiteral("treeWidget"));
-
-        gridLayout->addWidget(treeWidget, 2, 0, 1, 3);
-
+        gridLayout_3 = new QGridLayout(centralWidget);
+        gridLayout_3->setSpacing(6);
+        gridLayout_3->setContentsMargins(11, 11, 11, 11);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(150, 10, 381, 60));
         QFont font;
         font.setFamily(QStringLiteral("Executive"));
         font.setPointSize(32);
@@ -104,14 +69,82 @@ public:
         font.setWeight(75);
         label->setFont(font);
         label->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(label, 1, 0, 1, 1);
+
+        groupBox = new QGroupBox(centralWidget);
+        groupBox->setObjectName(QStringLiteral("groupBox"));
+        QSizePolicy sizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+        sizePolicy.setHorizontalStretch(1);
+        sizePolicy.setVerticalStretch(1);
+        sizePolicy.setHeightForWidth(groupBox->sizePolicy().hasHeightForWidth());
+        groupBox->setSizePolicy(sizePolicy);
+        groupBox->setLayoutDirection(Qt::LeftToRight);
+        groupBox->setAutoFillBackground(true);
+        groupBox->setAlignment(Qt::AlignCenter);
+        groupBox->setFlat(true);
+        verticalLayout = new QVBoxLayout(groupBox);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        lineEdit = new QLineEdit(groupBox);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        QFont font1;
+        font1.setPointSize(9);
+        lineEdit->setFont(font1);
+
+        verticalLayout->addWidget(lineEdit);
+
+        label_2 = new QLabel(groupBox);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        QFont font2;
+        font2.setFamily(QStringLiteral("Droid Sans Mono"));
+        label_2->setFont(font2);
+        label_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        verticalLayout->addWidget(label_2);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        verticalLayout->addItem(horizontalSpacer);
+
+        categorySel = new QComboBox(groupBox);
+        categorySel->setObjectName(QStringLiteral("categorySel"));
+        QFont font3;
+        font3.setFamily(QStringLiteral("Droid Sans Mono"));
+        font3.setPointSize(9);
+        categorySel->setFont(font3);
+
+        verticalLayout->addWidget(categorySel);
+
+        pushButton = new QPushButton(groupBox);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setFont(font3);
+
+        verticalLayout->addWidget(pushButton);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        verticalLayout->addItem(horizontalSpacer_2);
+
+        treeWidget = new QTreeWidget(groupBox);
+        treeWidget->setObjectName(QStringLiteral("treeWidget"));
+        treeWidget->setFont(font3);
+
+        verticalLayout->addWidget(treeWidget);
+
+
+        gridLayout_3->addWidget(groupBox, 2, 0, 1, 1);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_3->addItem(horizontalSpacer_3, 0, 0, 1, 1);
+
         ElasticSearchGUI->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(ElasticSearchGUI);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 667, 17));
+        menuBar->setGeometry(QRect(0, 0, 482, 17));
         ElasticSearchGUI->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(ElasticSearchGUI);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        ElasticSearchGUI->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(ElasticSearchGUI);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         ElasticSearchGUI->setStatusBar(statusBar);
@@ -124,6 +157,7 @@ public:
     void retranslateUi(QMainWindow *ElasticSearchGUI)
     {
         ElasticSearchGUI->setWindowTitle(QApplication::translate("ElasticSearchGUI", "nAIS", Q_NULLPTR));
+        label->setText(QApplication::translate("ElasticSearchGUI", "AIS NOT DEAD", Q_NULLPTR));
         groupBox->setTitle(QString());
         label_2->setText(QString());
         categorySel->clear();
@@ -136,11 +170,11 @@ public:
         );
         pushButton->setText(QApplication::translate("ElasticSearchGUI", "Hledej", Q_NULLPTR));
         QTreeWidgetItem *___qtreewidgetitem = treeWidget->headerItem();
+        ___qtreewidgetitem->setText(4, QApplication::translate("ElasticSearchGUI", "Minut\303\241\305\276", Q_NULLPTR));
         ___qtreewidgetitem->setText(3, QApplication::translate("ElasticSearchGUI", "Re\305\276ie", Q_NULLPTR));
-        ___qtreewidgetitem->setText(2, QApplication::translate("ElasticSearchGUI", "rok", Q_NULLPTR));
+        ___qtreewidgetitem->setText(2, QApplication::translate("ElasticSearchGUI", "Rok", Q_NULLPTR));
         ___qtreewidgetitem->setText(1, QApplication::translate("ElasticSearchGUI", "AIS \304\215\303\255slo", Q_NULLPTR));
         ___qtreewidgetitem->setText(0, QApplication::translate("ElasticSearchGUI", "N\303\241zev", Q_NULLPTR));
-        label->setText(QApplication::translate("ElasticSearchGUI", "AIS NOT DEAD", Q_NULLPTR));
     } // retranslateUi
 
 };
