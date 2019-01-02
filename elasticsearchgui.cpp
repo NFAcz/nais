@@ -46,11 +46,12 @@ ElasticSearchGUI::~ElasticSearchGUI()
 }
 
 /*
-   void ElasticSearchGUI::on_pushButton_clicked()
-   {
+void ElasticSearchGUI::on_pushButton_clicked()
+{
 
-   }
-   */
+}
+*/
+
 
 void ElasticSearchGUI::on_pushButton_released()
 {
@@ -58,7 +59,7 @@ void ElasticSearchGUI::on_pushButton_released()
   qDebug() << "query is:" << text;
 
   ask(text);
-//  ui->lineEdit->setText("");
+//ui->lineEdit->setText("");
 }
 
 
@@ -68,7 +69,7 @@ void ElasticSearchGUI::on_lineEdit_returnPressed()
     qDebug() << "query is:" << text;
 
     ask(text);
-//    ui->lineEdit->setText("");
+//ui->lineEdit->setText("");
 }
 
 
@@ -76,9 +77,7 @@ void ElasticSearchGUI::on_categorySel_currentIndexChanged(int index)
 {
   qDebug() << index;
   SEL = index;
-
 }
-
 
 
 void ElasticSearchGUI::ask(QString &input){
@@ -138,17 +137,20 @@ void ElasticSearchGUI::ask(QString &input){
       topLevel->setText(2, source.value("ROK-VYROBY").toString());
       topLevel->setText(3, source.value("REZIE").toString());
 
-//      topLevel->setText(4, source.value("MATERIAL").toObject().value("DILY-KOMBIN-MATERIALU").toObject().value("DELKA-CELEM").toString());
+//topLevel->setText(4, source.value("MATERIAL").toObject().value("DILY-KOMBIN-MATERIALU").toObject().value("DELKA-CELEM").toString());
 
-      /*
-      for(int i = 0 ; i < source.size(); i++){
+      QJsonArray material = source["MATERIAL"].toArray();
+
+      for(int i = 0 ; i < material.size(); i++){
           QTreeWidgetItem * item = new QTreeWidgetItem();
-             item->setText(0,source.keys()[i] + ": " + source.value(source.keys()[i]).toString());
+          QJsonObject tmp = material[i].toObject();
+             item->setText(0,"MATERIALID: "+tmp.value("MATERIALID").toString()+", STAV-KOPIE: "+tmp.value("STAV-KOPIE").toString()+", VYROBCE: "+tmp.value("VYROBCE").toString()+", METRAZ:"+tmp.value("DILY-OBRAZU").toObject().value("DELKA-CELKEM").toString()+"m");
+
              topLevel->addChild(item);
 
       }
-      */
 
+/*
       QJsonObject::iterator i;
           for (i = source.begin(); i != source.end(); ++i) {
               if (i.value().isNull()){
@@ -175,6 +177,7 @@ void ElasticSearchGUI::ask(QString &input){
                   topLevel->addChild(item);
                   }
           }
+          */
       tree->addTopLevelItem(topLevel);
     }
   }
